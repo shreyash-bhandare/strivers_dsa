@@ -7,8 +7,15 @@ int partition(vector<int> &arr, int low, int high){
     int j = high;
 
     while(i < j){
+        // for ascending
         while(arr[i] <= pivot && i <= high-1) i++;      // reaching to the leftmost larger element than pivot
         while(arr[j] >= pivot && j >= low+1) j--;       // reaching to the rightmost smaller element than pivot
+
+        // for descending
+        // while(arr[i] >= pivot && i <= high-1) i++;
+        // while(arr[j] <= pivot && j >= low+1) j--;
+
+
         if(i < j) swap(arr[i], arr[j]);
     }
     swap(arr[low], arr[j]);
