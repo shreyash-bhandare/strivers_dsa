@@ -11,18 +11,29 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool check(vector<int>& nums) {
+// bool check(vector<int>& nums) {
+//     int n = nums.size();
+//     int start;
+//     for(start = 1; start < n; start++){
+//         if(nums[start] < nums[start-1]) break;
+//     }
+//     if(start == n) return true;
+//     for(int j = start+1; j < n; j++){
+//         if(nums[j] < nums[j-1]) return false;
+//     }
+//     for(int j = 0; j < start; j++){
+//         if(nums[j] < nums[j-1]) return false;
+//     }
+//     return true;
+// }
+
+// more optimised way:
+bool check(vector<int> &nums){
     int n = nums.size();
-    int start;
-    for(start = 1; start < n; start++){
-        if(nums[start] < nums[start-1]) break;
-    }
-    if(start == n) return true;
-    for(int j = start+1; j < n; j++){
-        if(nums[j] < nums[j-1]) return false;
-    }
-    for(int j = 0; j < start; j++){
-        if(nums[j] < nums[j-1]) return false;
+    int flag = 0;
+    for(int i = 0; i < n; i++){
+        if(nums[i] > nums[(i+1)%n]) flag++;
+        if(flag > 1) return false;
     }
     return true;
 }
