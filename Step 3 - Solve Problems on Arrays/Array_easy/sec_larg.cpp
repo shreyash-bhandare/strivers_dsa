@@ -23,7 +23,7 @@ int sec_large(vector<int> nums){
 }
 
 int main(){
-    vector<int> quest = {8, 8, 7, 6, 5};
+    vector<int> quest = {1, 7, 7, 7};
     cout<<sec_large(quest);
     return 0;
 }
