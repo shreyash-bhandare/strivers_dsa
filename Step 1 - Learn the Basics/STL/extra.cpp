@@ -7,7 +7,7 @@ bool comp(pair<int, int> p1, pair<int, int> p2){
     if(p1.second < p2.second) return true;
     if(p1.second > p2.second) return false;
     // if both are same
-    if(p1.first > p2.first) return true;
+    if(p1.first < p2.first) return true;
     return false;
 }
 
@@ -22,8 +22,8 @@ void extra(){
     //sort(vc.begin(), vc.end());
     sort(vc.begin()+1, vc.begin()+4);
     for(auto v : vc)
-        cout<<v<<" "<<endl;
-
+        cout<<v<<" ";
+    cout<<endl;
     pair<int, int> a[] = {{1, 2}, {2, 1}, {4, 1}};
     // sort it according to second element.
     // if second element is same, sort acc to first element but in descending order.

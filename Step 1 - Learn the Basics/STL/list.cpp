@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// List is same as vector just it gives operations such as push_back and emplace_back. 
+// List is same as vector just it gives operations such as push_front and emplace_front. 
 // Rest of the operations are same as Vector
 
 void explainList(){

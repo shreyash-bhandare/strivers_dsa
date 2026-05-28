@@ -15,12 +15,12 @@ void explainPQ(){
 
     //now to store in descending order,
     priority_queue<int, vector<int>, greater<int>> newpq;
-    pq.push(5);
-    pq.push(2);
-    pq.push(8);
-    pq.emplace(4);
+    newpq.push(5);
+    newpq.push(2);
+    newpq.push(8);
+    newpq.emplace(4);
 
-    cout<<pq.top();
+    cout<<newpq.top();
 
     //time complexities: 
     // push: O(logn)

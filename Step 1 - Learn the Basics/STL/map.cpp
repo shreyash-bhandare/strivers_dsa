@@ -7,21 +7,25 @@ void explainMap(){
     // key should be unique(in sorted order), but value can be or can not be.
     // map <pair<int, int>, int> mp;
     // map <int, pair<int, int>> mp;
+
     mp[1] = 2;
     mp.insert({2,3});
     mp.emplace(3,4);
+
     for(auto it: mp){
         cout<<it.first<<" "<<it.second<<endl;
     }
+
     cout<<mp[1]<<endl;
     cout<<mp[5];
+
     auto it = mp.find(3);
     cout<<(*it).second<<endl;
 
-    auto it = mp.find(5); // return the pointer after the map
+    auto it1 = mp.find(5); // return the pointer after the map
 
-    auto it = mp.upper_bound(2);
-    auto it = mp.lower_bound(3);
+    auto it2 = mp.upper_bound(2);
+    auto it3 = mp.lower_bound(3);
 
     // works in O(logN) time complexity
 }

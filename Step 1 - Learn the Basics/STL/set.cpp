@@ -16,6 +16,9 @@ void explainSet() {
     st.insert(2);
     printSet(st);
 
+
+    // iterator to the element if found
+    // st.end() if not found
     auto it = st.find(3);
     if (it != st.end())
         cout << "it: " << *it << endl;
