@@ -1,0 +1,18 @@
+1) For Pushing the Code for First Time:
+
+git init
+git add .
+git commit -m "Message"
+git remote add origin https://github.com/shreyash-bhandare/strivers_dsa.git
+git branch -M main
+git push -u origin main
+
+2) For Future updates:
+
+git add .
+git commit -m "your message"
+git push
+
+3) Verify Remote with:
+
+git remote -v
