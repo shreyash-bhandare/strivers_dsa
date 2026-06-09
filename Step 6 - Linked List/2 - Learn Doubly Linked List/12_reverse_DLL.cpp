@@ -47,14 +47,14 @@ void printDLL(Node* head){
 Node* reverseDLL(Node* head){
     if(head == nullptr || head->next == nullptr) return head;
     Node* prev = nullptr;
-    Node* temp = head;
-    while(temp != nullptr){
+    Node* current = head;
+    while(current != nullptr){
         // swapping
-        prev = temp->prev;
-        temp->prev = temp->next;
-        temp->next = prev;
+        prev = current->prev;
+        current->prev = current->next;
+        current->next = prev;
         // traversal
-        temp = temp->prev;
+        current = current->prev;
     }
     return prev->prev;
 }
