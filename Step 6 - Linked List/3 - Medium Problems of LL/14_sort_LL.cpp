@@ -99,8 +99,8 @@ ListNode* sortList(ListNode* head) {
     if(head == nullptr || head->next == nullptr) return head;
     return mergeForLL(head);
 }
-// Time Complexity: 
-// Space Complexity: 
+// Time Complexity: O((N+N/2) log N) N/2 for finding the middle and merge2SortedLists runs for log N times.
+// Space Complexity: O(log N) for recursive stack space.
 
 int main(){
     vector<int> nums1 = {4, 2, 1, 3};
