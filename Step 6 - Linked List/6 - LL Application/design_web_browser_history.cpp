@@ -1,4 +1,4 @@
-// Implement browser history using class
+// Implement browser history
 // You need to create a constructor browser (homepage)
 // function visit (url)
 // function back (steps)
