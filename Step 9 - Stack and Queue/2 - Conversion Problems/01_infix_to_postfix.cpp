@@ -1,0 +1,80 @@
+// Use cases of INFIX, PREFIX, POSTFIX
+INFIX: USED IN MOST OF PROGRAMMING LANGUAGAES
+PREFIX: USED IN STACK BASED CALCULATORS
+POSTFIX: USED IN PROGRAMMING LANGUAGES LIKE LISP AND USED IN TREE DATA STRUCTURE.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int priority(char c){
+    if(c == '^') return 3;
+    else if(c == '*' || c == '/') return 2;
+    else if(c == '+' || c == '-') return 1;
+    return -1;
+}
+
+string infixToPostfix(string s) {
+    int i = 0;
+    stack<char>st;
+    int n = s.size();
+    string ans = "";
+    while(i < n){
+        // if operand is encountered
+        if((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= 'a' && s[i] <= 'z') || (s[i] >= '0' && s[i] <= '9')){
+            ans += s[i];
+        }
+        // if opening bracket encountered
+        else if(s[i] == '('){
+            st.push(s[i]);
+        }
+        // if closing bracket encountered
+        else if(s[i] == ')'){
+            while(!st.empty() && st.top() != '('){
+                ans += st.top();
+                st.pop();
+            }
+            st.pop();
+        }
+        // if operator encountered
+        else{
+            while(!st.empty() && ((priority(s[i]) < priority(st.top())) || (priority(s[i]) == priority(st.top()) && s[i] != '^'))){
+                ans += st.top();
+                st.pop();
+            }
+            st.push(s[i]);
+        }
+        i++;
+    }
+    while(!st.empty()){
+        ans += st.top();
+        st.pop();
+    }
+    return ans;
+}
+
+int main() {
+
+    vector<string> testCases = {
+        "a+b",
+        "a+b*c",
+        "(a+b)*c",
+        "a+b*c-d/e",
+        "a*(b+c)",
+        "(a+b)*(c-d)",
+        "a+b*(c^d-e)^(f+g*h)-i",
+        "A+B",
+        "((a+b))",
+        "a+b-c",
+        "a*b+c/d",
+        "a^b^c"
+    };
+
+    for(string expr : testCases) {
+        cout << "Infix Expression   : " << expr << endl;
+        cout << "Postfix Expression : "
+             << infixToPostfix(expr) << endl;
+        cout << "----------------------------------" << endl;
+    }
+
+    return 0;
+}
